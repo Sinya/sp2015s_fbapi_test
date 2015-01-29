@@ -62,62 +62,61 @@
             </nav>
             <div id="flower"></div>
 
-            <section>
-       
-                    <div class="ContactForm">
-
-
-                    <form action="https://docs.google.com/forms/d/1NDdxrShJ3wmAth5Di_w5YzzVvYWlEZvctlwWcBc8p24/formResponse" 
-                    method="POST" id="ss-form" target="_self" 
-                    onsubmit=""><ol style="padding-left: 0"> 
-
-                       
-                        <input id="Email" name="Email" 
-                        type="text"  placeholder="Email Address">
-                        <input id="First" name="First" 
-                        type="text"  placeholder="First Name">
-                        <input id="Last" name="Last" 
-                        type="text"  placeholder="Last Name">
-                        <input id="Company" name="Company" 
-                        type="text" placeholder="Company">
-                        <button id="ButtonSubmit" onclick="postContactToGoogle()" 
-                        type="button" >Send</button> 
-
+            <div>
+                    <div>
+                        <strong>Test Google Form</strong>
                     </div>
+                    <form id="form" target="_self" onsubmit="" action="">
+                        <fieldset>
+                            <label>Question 1</label>
+                            <input id="qs1_op_1" type="radio" value="Yes" name="qs1">
+                            <input id="qs1_op_2" type="radio" value="No" name="qs1">
+                        </fieldset>
+                        <fieldset>
+                            <label>Question 2</label>
+                            <input id="qs2_op_1" type="radio" value="Yes" name="qs2">
+                            <input id="qs2_op_2" type="radio" value="No" name="qs2">
+                        </fieldset>
+                        <fieldset>
+                            <label>Text</label>
+                            <textarea id="feed" name="feed"></textarea>
+                        </fieldset>
+                        <div style="width: 100%; display: block; float: right;">
+                            <button id="send" type="submit">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+            </div>
 
-            </section> 
-
-
-            <footer><img src="http://i.imgur.com/h6ZGb4h.png" /><br/>
-            GOOD ! BYE ! <br/>
-            </footer>
-        </div>  
-    </body>
-
-    <script>
-        function postContactToGoogle() {
-            var email = $('#Email').val();
-            var first = $('#First').val();
-            var last = $('#Last').val();
-            var company = $('#Company').val();
-
+        <script type="text/javascript">
+            function postToGoogle() {
+                var field1 = $("input[type='radio'][name='qs1']:checked").val();
+                var field2 = $("input[type='radio'][name='qs2']:checked").val();
+                var field3 = $('#feed').val();
+ 
                 $.ajax({
-                    url: "https://docs.google.com/forms/d/1NDdxrShJ3wmAth5Di_w5YzzVvYWlEZvctlwWcBc8p24/formResponse",
-                    data: { "entry.1556815710": email, 
-                    "entry.184716543": first, "entry.551053870": 
-                    last, "entry.1766462164": company },
+                    url: "https://docs.google.com/forms/d/FORM_KEY/formResponse",
+                    data: { "entry.1422436989": field2, "entry.1556815710": field3, "entry.374916469": field1 },
                     type: "POST",
                     dataType: "xml",
                     statusCode: {
-                        0: function () {
-                            window.location.replace("index.html");
+                        0: function() {
+                            //Success message
                         },
-                        200: function () {
-                            window.location.replace("index.html");
+                        200: function() {
+                            //Success Message
                         }
                     }
                 });
-        }
-    </script>
-
+            }
+             
+            $(document).ready(function(){
+                $('#form').submit(function() {
+                    postToGoogle();
+                    return false;
+                });
+            });
+        </script>
+    </body>
 </html>
