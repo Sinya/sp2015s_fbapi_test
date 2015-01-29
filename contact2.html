@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Hello, I am Contact:)</title>
+        <link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Londrina+Outline' rel='stylesheet' type='text/css'>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.0/jquery.min.js?ver=1.9.0" type="text/javascript"></script>
+
+        <link rel="stylesheet" type="text/css" href="contact_style.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+       
+    </head>
+
+    <body>
+        <div class="Content">
+
+            <header>
+                <img id="sinya" src="http://i.imgur.com/DlxvJkY.png"/>
+                <img id="pong" src="http://i.imgur.com/v43cT0E.png">
+
+            </header>
+        
+            <nav class="container">
+
+                <a href="index.html" class="mine-item">
+                    <span class="mine-icon-wrap">
+                    <img id="perry" src="http://i.imgur.com/3o5inFs.png" class="mine-icon">
+                    </span>
+                    <h2 class="mine-title">HOME</h2>
+                </a>
+                  
+                 <a href="#" class="mine-item">
+                    <span class="mine-icon-wrap">
+                    <img id="phineas" src="http://i.imgur.com/RynrAxA.png" class="mine-icon"> 
+                    </span>
+                    <h2 class="mine-title">CONTACT</h2>
+                </a>
+                 
+
+            </nav>
+            <div id="flower"></div>
+
+            <section>
+       
+                    <div class="ContactForm">
+
+
+                    <form action="https://docs.google.com/forms/d/1NDdxrShJ3wmAth5Di_w5YzzVvYWlEZvctlwWcBc8p24/formResponse" 
+                    method="POST" id="ss-form" target="_self" 
+                    onsubmit=""><ol style="padding-left: 0"> 
+
+                       
+                        <input id="Email" name="Email" 
+                        type="text"  placeholder="Email Address">
+                        <input id="First" name="First" 
+                        type="text"  placeholder="First Name">
+                        <input id="Last" name="Last" 
+                        type="text"  placeholder="Last Name">
+                        <input id="Company" name="Company" 
+                        type="text" placeholder="Company">
+                        <button id="ButtonSubmit" onclick="postContactToGoogle()" 
+                        type="button" >Send</button> 
+
+                    </div>
+
+            </section> 
+
+
+            <footer><img src="http://i.imgur.com/h6ZGb4h.png" /><br/>
+            GOOD ! BYE ! <br/>
+            </footer>
+        </div>  
+    </body>
+
+    <script>
+        function postContactToGoogle() {
+            var email = $('#Email').val();
+            var first = $('#First').val();
+            var last = $('#Last').val();
+            var company = $('#Company').val();
+
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/1NDdxrShJ3wmAth5Di_w5YzzVvYWlEZvctlwWcBc8p24/formResponse",
+                    data: { "entry.1556815710": email, 
+                    "entry.184716543": first, "entry.551053870": 
+                    last, "entry.1766462164": company },
+                    type: "POST",
+                    dataType: "xml",
+                    statusCode: {
+                        0: function () {
+                            window.location.replace("ThankYou.html");
+                        },
+                        200: function () {
+                            window.location.replace("ThankYou.html");
+                        }
+                    }
+                });
+        }
+    </script>
+
+</html>
