@@ -65,8 +65,6 @@
        
                     <div class="ContactForm">
 
-                    <!-- <form action="https://docs.google.com/spreadsheet/formResponse?formkey=dDZ3dGNNLVFBTjR4bktTNGhQVEFfa3c6MA&amp;ifq" method="POST"> -->
-
                     <form action="https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse" method="POST">
 
                        
@@ -110,13 +108,13 @@
                         </select>
 
                         <h3>Email</h3>
-                            <input type="text" name="entry.4.single">
+                            <input type="text" name="entry.4.single" id="Email">
                         
                         <h3>Comments</h3>
                         
-                        <textarea name="entry.5.single" cols="30" rows="5"></textarea>
+                        <textarea name="entry.5.single" cols="30" rows="5" id="Comments"></textarea>
 
-                        <input type="submit" value="送出" name="submit">
+                        <button id="ButtonSubmit" onclick="postContactToGoogle()" type="button" >Send</button> 
 
                         </form>
                     </div>
@@ -129,5 +127,36 @@
             </footer>
         </div>  
     </body>
+
+      <script>
+        function postContactToGoogle() {
+            var gender = $('input:checked[name="entry.1.group"]').val();
+            var relational = $('select[name="entry.3.single"]').val();
+            var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
+            var email = $('#Email').val();
+            var comments = $('#Comments').val();
+
+                $.ajax({
+                    url: "https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse",
+                    data: { 
+                        "entry_1020203755": gender, 
+                        "entry_242686320": relational, 
+                        "entry_736712925": food, 
+                        "entry.691819187": email,
+                        "entry.1433188830": comments  
+                    },
+                    type: "POST",
+                    dataType: "xml",
+                    statusCode: {
+                        0: function () {
+                            window.location.replace("index.html");
+                        },
+                        200: function () {
+                            window.location.replace("index.html");
+                        }
+                    }
+                });
+        }
+    </script>
 
 </html>
