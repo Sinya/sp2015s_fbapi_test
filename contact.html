@@ -136,12 +136,14 @@
             var email = $('#Email').val();
             var comments = $('#Comments').val();
 
+            console.log(food,relational,gender);
+
                 $.ajax({
                     url: "https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse",
                     data: { 
-                        "entry.1020203755": gender, 
+                        "entry.332897530": gender, 
+                        "entry.919277754": food, 
                         "entry.242686320": relational, 
-                        "entry.736712925": food, 
                         "entry.691819187": email,
                         "entry.1433188830": comments  
                     },
