@@ -114,7 +114,7 @@
                         
                         <textarea name="entry.5.single" cols="30" rows="5" id="Comments"></textarea>
 
-                        <button id="send" type="submit">
+                        <button id="ButtonSubmit" onclick="postContactToGoogle()" type="button" >Send</button> 
 
                         </form>
                     </div>
@@ -160,14 +160,6 @@
                     // }
                 });
         }
-
-        $(document).ready(function(){
-                $('#form').submit(function() {
-                    postToGoogle();
-                    return false;
-                });
-        });
-
     </script>
 
 </html>
