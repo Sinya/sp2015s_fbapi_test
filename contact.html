@@ -63,10 +63,13 @@
 
             <section>
        
-                    <div class="ContactForm">
+                <div class="ContactForm">
 
-                    <form action="https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse" method="POST">
-
+                    <div>
+                        <strong>Test Google Form</strong>
+                    </div>
+                    
+                    <form id="form" target="_self" onsubmit="" action="">
                        
                         <input type="hidden" name="entry.0.single" value="100703010">
 
@@ -114,10 +117,14 @@
                         
                         <textarea name="entry.5.single" cols="30" rows="5" id="Comments"></textarea>
 
-                        <button id="ButtonSubmit" onclick="postContactToGoogle()" type="button" >Send</button> 
+                         <div style="width: 100%; display: block; float: right;">
+                            <button id="send" type="submit">
+                                Send
+                            </button>
+                        </div>
 
-                        </form>
-                    </div>
+                    </form>
+                </div>
 
             </section> 
 
@@ -129,7 +136,7 @@
         </div>  
     </body>
 
-      <script>
+      <script type="text/javascript">
         function postContactToGoogle() {
             var gender = $('input:radio:checked[name="entry.1.group"]').val();
             var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
@@ -150,16 +157,23 @@
                     },
                     type: "POST",
                     dataType: "xml",
-                    // statusCode: {
-                    //     0: function () {
-                    //         window.location.replace("index.html");
-                    //     },
-                    //     200: function () {
-                    //         window.location.replace("index.html");
-                    //     }
-                    // }
+                    statusCode: {
+                        0: function() {
+                            //Success message
+                        },
+                        200: function() {
+                            //Success Message
+                        }
+                    }
                 });
-        }
-    </script>
-
+            }
+             
+            $(document).ready(function(){
+                $('#form').submit(function() {
+                    postToGoogle();
+                    return false;
+                });
+            });
+        </script>
+    </body>
 </html>
