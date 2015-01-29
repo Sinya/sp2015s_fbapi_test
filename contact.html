@@ -76,37 +76,37 @@
 
                         <h3>Gender</h3>
                         <input type="radio" name="entry.1.group" value="Boy" id="Boy">
-                          <label for="Boy">  Boy</label>
+                            <label for="Boy">  Boy</label>
 
                         <input type="radio" name="entry.1.group" value="Girl" id="Girl">
-                        <label for="Girl">  Girl</label>
+                            <label for="Girl">  Girl</label>
 
                         <h3>Favorite Food</h3>
-                        <ul>
-                          <li>
-                            <input type="checkbox" name="entry.2.group" id="Apple" value="Apple">
-                            <label for="Apple">Apple</label>
-                          </li>
-                          <li>
-                            <input type="checkbox" name="entry.2.group" id="Banana" value="Banana">
-                            <label for="Banana">Banana</label>
-                          </li>
-                          <li>
-                            <input type="checkbox" name="entry.2.group" id="Lemon<" value="Lemon">
-                            <label for="Lemon<">Lemon</label>
-                          </li>
-                          <li>
-                            <input type="checkbox" name="entry.2.group" id="Watermelon" value="Watermelon">
-                            <label for="Watermelon">Watermelon</label>
-                          </li>
-                        </ul>
+                            <ul>
+                              <li>
+                                <input type="checkbox" name="entry.2.group" id="Apple" value="Apple">
+                                <label for="Apple">Apple</label>
+                              </li>
+                              <li>
+                                <input type="checkbox" name="entry.2.group" id="Banana" value="Banana">
+                                <label for="Banana">Banana</label>
+                              </li>
+                              <li>
+                                <input type="checkbox" name="entry.2.group" id="Lemon<" value="Lemon">
+                                <label for="Lemon<">Lemon</label>
+                              </li>
+                              <li>
+                                <input type="checkbox" name="entry.2.group" id="Watermelon" value="Watermelon">
+                                <label for="Watermelon">Watermelon</label>
+                              </li>
+                            </ul>
 
                         <h3>Relational</h3>
                         <select name="entry.3.single">
-                                    <option value="Single">Single
-                                    <option value="Dating">Dating
-                                    <option value="Married">Married
-                                    <option value="Hard to explain">Hard to explain
+                            <option value="Single">Single
+                            <option value="Dating">Dating
+                            <option value="Married">Married
+                            <option value="Hard to explain">Hard to explain
                                     
                         </select>
 
@@ -117,7 +117,7 @@
                         
                         <textarea name="entry.5.single" cols="30" rows="5" id="Comments"></textarea>
 
-                         <div style="width: 100%; display: block; float: right;">
+                        <div style="width: 100%; display: block; float: right;">
                             <button id="send" type="submit">
                                 Send
                             </button>
@@ -137,7 +137,7 @@
     </body>
 
       <script type="text/javascript">
-        function postContactToGoogle() {
+        function postToGoogle() {
             var gender = $('input:radio:checked[name="entry.1.group"]').val();
             var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
             var relational = $('select[name="entry.3.single"]').val();
