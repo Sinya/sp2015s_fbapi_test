@@ -114,7 +114,7 @@
                         
                         <textarea name="entry.5.single" cols="30" rows="5" id="Comments"></textarea>
 
-                        <button id="ButtonSubmit" onclick="postContactToGoogle()" type="button" >Send</button> 
+                        <button id="send" type="submit">
 
                         </form>
                     </div>
@@ -137,7 +137,7 @@
             var email = $('#Email').val();
             var comments = $('#Comments').val();
 
-            console.log(food,relational,gender);
+            console.log(gender,food,relational);
 
                 $.ajax({
                     url: "https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse",
@@ -160,6 +160,14 @@
                     // }
                 });
         }
+
+        $(document).ready(function(){
+                $('#form').submit(function() {
+                    postToGoogle();
+                    return false;
+                });
+        });
+
     </script>
 
 </html>
