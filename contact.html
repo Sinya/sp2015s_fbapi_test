@@ -130,7 +130,7 @@
 
       <script>
         function postContactToGoogle() {
-            var gender = $('input:checked[name="entry.1.group"]').val();
+            var gender = $('input:radio:checked[name="entry.1.group"]').val();
             var relational = $('select[name="entry.3.single"]').val();
             var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
             var email = $('#Email').val();
