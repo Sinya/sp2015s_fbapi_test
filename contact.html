@@ -131,17 +131,17 @@
       <script>
         function postContactToGoogle() {
             var gender = $('input:radio:checked[name="entry.1.group"]').val();
-            var relational = $('select[name="entry.3.single"]').val();
             var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
+            var relational = $('select[name="entry.3.single"]').val();
             var email = $('#Email').val();
             var comments = $('#Comments').val();
 
                 $.ajax({
                     url: "https://docs.google.com/forms/d/19ByE65XUGf2a9gU5TKOC49g0KMmJ-3FWiMWorDT5pVg/formResponse",
                     data: { 
-                        "entry_1020203755": gender, 
-                        "entry_242686320": relational, 
-                        "entry_736712925": food, 
+                        "entry.1020203755": gender, 
+                        "entry.242686320": relational, 
+                        "entry.736712925": food, 
                         "entry.691819187": email,
                         "entry.1433188830": comments  
                     },
