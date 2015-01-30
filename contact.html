@@ -141,6 +141,7 @@
             var gender = $("input[type='radio'][name='entry.1.group']:checked").val();
             // var food = $('input[name*="entry.2.group"]:checked').serialize();
 
+            /*
             var foods = [];
             $('input[type=checkbox]').each( function() {
                 if( $(this).is(':checked') ) {
@@ -148,7 +149,13 @@
                     }
                     });
             // Now you can store your values in a comma separated list
-            var food = foods.join(',');
+            var food = foods.join(','); */
+
+            var food = { "entry.919277754": [] };
+            $("input[name='entry.2.group']:checked").each(function (i, n) {
+                food["entry.919277754"].push(n.value);
+            });
+
             var relational = $('select[name="entry.3.single"]').val();
             var email = $('#Email').val();
             var comments = $('#Comments').val();
