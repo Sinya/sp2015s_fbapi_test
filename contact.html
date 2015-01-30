@@ -139,7 +139,7 @@
       <script type="text/javascript">
         function postToGoogle() {
             var gender = $("input[type='radio'][name='entry.1.group']:checked").val();
-            var food = $('input:checkbox:checked[name="entry.2.group"]').map(function() { return $(this).val(); }).get();
+            var food = $('input[name*="entry.2.group"]:checked').serialize();
             var relational = $('select[name="entry.3.single"]').val();
             var email = $('#Email').val();
             var comments = $('#Comments').val();
