@@ -139,7 +139,16 @@
       <script type="text/javascript">
         function postToGoogle() {
             var gender = $("input[type='radio'][name='entry.1.group']:checked").val();
-            var food = $('input[name*="entry.2.group"]:checked').serialize();
+            // var food = $('input[name*="entry.2.group"]:checked').serialize();
+
+            var foods = [];
+            $('input[type=checkbox]').each( function() {
+                if( $(this).is(':checked') ) {
+                    foods.push( $(this).val() );
+                    }
+                    });
+            // Now you can store your values in a comma separated list
+            var food = foods.join(',');
             var relational = $('select[name="entry.3.single"]').val();
             var email = $('#Email').val();
             var comments = $('#Comments').val();
