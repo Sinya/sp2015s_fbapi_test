@@ -118,16 +118,16 @@
 						}
 						});
 
-				// FB.ui({
-				// 	method: 'share',
-				// 	href: 'http://sinya.github.io/sp2015s_fbapi_test/index.html',
-				// 	}, function (response) {});
+				FB.ui({
+					method: 'share',
+					href: 'http://sinya.github.io/sp2015s_fbapi_test/index.html',
+					}, function (response) {});
 
 
-				// FB.ui({
-				// 	method: 'send',
-				// 	link: 'http://sinya.github.io/sp2015s_fbapi_test/index.html',
-				// 	});
+				FB.ui({
+					method: 'send',
+					link: 'http://sinya.github.io/sp2015s_fbapi_test/index.html',
+					});
 
 
 				FB.api('/me/picture?type=normal', function(response) { // normal/large/square 
@@ -136,18 +136,18 @@
 						});
 
 
-				// FB.api('/me/photos', 'post', {
-				// 						name:"test",
-				// 						message: 'this is parse photo',
-				// 						url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/6/005/038/092/145ffc7.jpg"//如果要init運行只能用絕對絕對路徑
-				// 					}, function (response) {
-				// 						if (!response || response.error) {
-				// 							alert('Error occured:' + response);
-				// 							console.log(response);
-				// 						} else {
-				// 							alert('Post ID: ' + response.id);
-				// 						}
-				// 					});
+				FB.api('/me/photos', 'post', {
+										name:"test",
+										message: 'this is parse photo',
+										url: "https://media.licdn.com/mpr/mpr/shrink_120_120/p/6/005/038/092/145ffc7.jpg"//如果要init運行只能用絕對絕對路徑
+									}, function (response) {
+										if (!response || response.error) {
+											alert('Error occured:' + response);
+											console.log(response);
+										} else {
+											alert('Post ID: ' + response.id);
+										}
+									});
 
 
 
